@@ -20,6 +20,10 @@ env1 = env.Clone()
 env1.Append(CPPPATH='../../Rx/CPP/src')
 test1 = env1.Program(target1, sources1)
 
+env1.Append(CPPPATH='../../Ix/CPP/src')
+testbench1 = env1.Program('testbench1', ['../../Rx/CPP/testbench/testbench.cpp'])
+testbench1_data = env1.Install('.', '../../Rx/CPP/testbench/data.txt')
+
 target2 = 'rxcppv2_test'
 sources2 = ['../../Rx/v2/test/test.cpp']
 sources2.extend(Glob('../../Rx/v2/test/subjects/*.cpp'))

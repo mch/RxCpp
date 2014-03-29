@@ -19,6 +19,7 @@ cd projects/scons
 scons
 ./rxcpp_test
 ./rxcppv2_test
+./testbench1
 ```
 
 # Interactive Extensions
