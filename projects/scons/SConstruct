@@ -1,0 +1,31 @@
+env = Environment(CPPPATH=['../../ext/catch/single_include'])
+
+env['CXX'] = 'clang++'
+env['CC'] = 'clang'
+env['CXXFLAGS'] = '-std=c++11 -stdlib=libc++'
+
+config = env.Configure()
+if not config.CheckCXXHeader('catch.hpp'):
+    print 'Catch (https://github.com/philsquared/Catch) is missing.'
+    print 'Try "git submodule init" and "git submodule update in "../..".'
+    print 'Or, download Catch and put in somewhere on your compiler\'s include path.'
+    Exit(1)
+env = config.Finish()
+
+target1 = 'rxcpp_test'
+sources1 = ['../../Rx/CPP/test/test.cpp']
+sources1.extend(Glob('../../Rx/CPP/test/operators/*.cpp'))
+
+env1 = env.Clone()
+env1.Append(CPPPATH='../../Rx/CPP/src')
+test1 = env1.Program(target1, sources1)
+
+target2 = 'rxcppv2_test'
+sources2 = ['../../Rx/v2/test/test.cpp']
+sources2.extend(Glob('../../Rx/v2/test/subjects/*.cpp'))
+sources2.extend(Glob('../../Rx/v2/test/subscriptions/*.cpp'))
+sources2.extend(Glob('../../Rx/v2/test/operators/*.cpp'))
+
+env2 = env.Clone()
+env2.Append(CPPPATH='../../Rx/v2/src')
+test2 = env2.Program(target2, sources2)
