@@ -1,10 +1,25 @@
 # Reactive Extensions:
 
-Rxcpp Build status [![Build Status](https://travis-ci.org/Reactive-Extensions/RxCpp.png)](https://travis-ci.org/Reactive-Extensions/RxCpp)
+The Reactive Extensions for Native (RxC) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators in both C and C++. It is a header only library that can be used in your own programs. 
 
-* Rx.NET: The Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.
-* RxJS: The Reactive Extensions for JavaScript (RxJS) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators in JavaScript which can target both the browser and Node.js.
-* Rx++: The Reactive Extensions for Native (RxC) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators in both C and C++.
+# Getting Started
+
+RxCpp uses [Catch](https://github.com/philsquared/Catch), a header only library, for unit tests. It is included as a sub-module, so do this to get started: 
+```
+git submodule init
+git submodule update
+```
+
+Alternativly, visit the [Catch builds page](http://builds.catch-lib.net/) and download the latest master build.
+
+I use [SCons](http://scons.org/), which requires [Python 2.7](http://python.org/) to build the tests. 
+
+```
+cd projects/scons
+scons
+./rxcpp_test
+./rxcppv2_test
+```
 
 # Interactive Extensions
 * Ix: The Interactive Extensions (Ix) is a .NET library which extends LINQ to Objects to provide many of the operators available in Rx but targeted for IEnumerable<T>.
@@ -15,7 +30,7 @@ Rxcpp Build status [![Build Status](https://travis-ci.org/Reactive-Extensions/Rx
 * Tx: a set of code samples showing how to use LINQ to events, such as real-time standing queries and queries on past history from trace and log files, which targets ETW, Windows Event Logs and SQL Server Extended Events.
 * LINQ2Charts: an example for Rx bindings.  Similar to existing APIs like LINQ to XML, it allows developers to use LINQ to create/change/update charts in an easy way and avoid having to deal with XML or other underneath data structures. We would love to see more Rx bindings like this one.
 
-#Contributing Code
+# Contributing Code
 
 Before submitting a feature or substantial code contribution please  discuss it with the team and ensure it follows the product roadmap. Note that all code submissions will be rigorously reviewed and tested by the Rx Team, and only those that meet an extremely high bar for both quality and design/roadmap appropriateness will be merged into the source.
 
